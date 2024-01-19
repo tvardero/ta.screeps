@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "install",
+      "detail": "npm i",
+      "type": "npm",
+      "script": "install",
+      "problemMatcher": [],
+    },
+    {
+      "label": "build",
+      "detail": "tsc",
+      "dependsOn": "install",
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$tsc"
+      ],
+    },
+    {
+      "label": "test",
+      "detail": "npm run test",
+      "dependsOn": "build",
+      "type": "npm",
+      "script": "test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "deploy",
+      "detail": "npm ts-node deploy.ts",
+      "dependsOn": "test",
+      "type": "npm",
+      "script": "deploy",
+      "problemMatcher": []
+    }
+  ]
+}

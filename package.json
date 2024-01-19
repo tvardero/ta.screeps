@@ -1,0 +1,23 @@
+{
+  "name": "ta.screeps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "deploy.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Note: No test specified\" && exit 0",
+    "deploy": "ts-node deploy.ts"
+  },
+  "author": "Vardo Ternos",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@types/screeps": "^3.3.7",
+    "ts-node": "^10.9.2",
+    "type-fest": "^4.9.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
