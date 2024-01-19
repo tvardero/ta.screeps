@@ -18,7 +18,7 @@ async function getModules(signal?: AbortSignal): Promise<Record<string, string>>
     for (const file of files) {
         if (!file.isFile()) continue;
 
-        const content = await fs.readFile(path.join(file.path, file.name), {signal, encoding: "utf-8"});
+        const content = await fs.readFile(path.join(file.path, file.name), { signal, encoding: "utf-8" });
         result[path.basename(file.name, path.extname(file.name))] = content;
     }
 
@@ -46,8 +46,12 @@ async function main(signal?: AbortSignal) {
         signal
     });
 
-    console.log("deploy status: " + response.statusText);
-    if (response.status !== 200 && response.status !== 204) throw new Error(response.statusText);
+    if (response.status !== 200 && response.status !== 204) {
+        console.error("ERR: " + response.statusText);
+        throw new Error(response.statusText);
+    }
+
+    console.log("OK");
 }
 
 const abortCtrl = new AbortController();
